@@ -6,7 +6,7 @@
       "Name": "YNAB.API.Client",
       "Description": "by Tom Bulatewicz",
       "Type": "library",
-      "Language": ".NEXT",
+      "Language": ".NET",
       "Link": "https://github.com/tombly/ynab-api-client"
     },
     {
