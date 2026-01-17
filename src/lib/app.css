@@ -14,20 +14,20 @@
 }
 
 footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
-    color: #888;
+	text-align: center;
+	padding: 20px;
+	font-size: 14px;
+	color: #888;
 }
 
 footer li {
-    margin-bottom: 5px;
-    display: inline-block;
-    margin-right: 10px;
+	margin-bottom: 5px;
+	display: inline-block;
+	margin-right: 10px;
 }
 
 /* Put | separator between footer items, except the last one */
 footer li:not(:last-child)::after {
-    content: '|';
-    margin-left: 10px;
+	content: '|';
+	margin-left: 10px;
 }
