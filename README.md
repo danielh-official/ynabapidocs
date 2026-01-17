@@ -1,38 +1,5 @@
-# sv
+# YNAB API Docs
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+An interface that scrapes YNAB API Documentation and provides a UI with timestamps.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Note: All data was parsed on 1/17/2026, 4:38:11 PM. This timestamp does not reflect the exact date/time that the item was added to YNAB API Docs. All future new items will be added with the date in which the scraper accesses the item (not exactly when YNAB adds them to the docs).
