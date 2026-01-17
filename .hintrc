@@ -1,0 +1,8 @@
+{
+  "extends": [
+    "development"
+  ],
+  "ignore": [
+    "original.html"
+  ]
+}

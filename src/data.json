@@ -1,0 +1,490 @@
+{
+	"items": [
+		{
+			"Text": ".NET - YNAB.API.Client by Tom Bulatewicz",
+			"Date added": "2026-01-17T21:38:11.501Z",
+			"Name": "YNAB.API.Client",
+			"Description": "by Tom Bulatewicz",
+			"Type": "library",
+			"Language": ".NET",
+			"Link": "https://github.com/tombly/ynab-api-client"
+		},
+		{
+			"Text": "Elixir - ynab-elixir by Tam Dang",
+			"Date added": "2026-01-17T21:38:11.503Z",
+			"Name": "ynab-elixir",
+			"Description": "by Tam Dang",
+			"Type": "library",
+			"Language": "Elixir",
+			"Link": "https://github.com/teedang19/ynab-elixir"
+		},
+		{
+			"Text": "Go - ynab.go by Bruno Souza",
+			"Date added": "2026-01-17T21:38:11.503Z",
+			"Name": "ynab.go",
+			"Description": "by Bruno Souza",
+			"Type": "library",
+			"Language": "Go",
+			"Link": "https://github.com/brunomvsouza/ynab.go"
+		},
+		{
+			"Text": "Java - Java SDK for YNAB API by David Dietz",
+			"Date added": "2026-01-17T21:38:11.504Z",
+			"Name": "Java SDK for YNAB API",
+			"Description": "by David Dietz",
+			"Type": "library",
+			"Language": "Java",
+			"Link": "https://github.com/daviddietz/ynab-sdk"
+		},
+		{
+			"Text": "Julia - ynab-tools by Joseph Peralta",
+			"Date added": "2026-01-17T21:38:11.505Z",
+			"Name": "ynab-tools",
+			"Description": "by Joseph Peralta",
+			"Type": "library",
+			"Language": "Julia",
+			"Link": "https://github.com/tonyrubak/ynab-tools"
+		},
+		{
+			"Text": "Kotlin - ynab-kmp-api (Kotlin Multiplatform) by Libor Huspenina",
+			"Date added": "2026-01-17T21:38:11.506Z",
+			"Name": "ynab-kmp-api",
+			"Description": "(Kotlin Multiplatform) by Libor Huspenina",
+			"Type": "library",
+			"Language": "Kotlin",
+			"Link": "https://github.com/libec/ynab-kmp-api"
+		},
+		{
+			"Text": "Perl - WWW::YNAB by Jesse Luehrs",
+			"Date added": "2026-01-17T21:38:11.506Z",
+			"Name": "WWW::YNAB",
+			"Description": "by Jesse Luehrs",
+			"Type": "library",
+			"Language": "Perl",
+			"Link": "https://metacpan.org/pod/WWW::YNAB"
+		},
+		{
+			"Text": "PHP - YNAB-SDK-PHP by Jorijn Schrijvershof",
+			"Date added": "2026-01-17T21:38:11.507Z",
+			"Name": "YNAB-SDK-PHP",
+			"Description": "by Jorijn Schrijvershof",
+			"Type": "library",
+			"Language": "PHP",
+			"Link": "https://github.com/Jorijn/ynab-sdk-php"
+		},
+		{
+			"Text": "PHP (Laravel) - YNAB SDK for Laravel by Daniel Haven",
+			"Date added": "2026-01-17T21:38:11.508Z",
+			"Name": "YNAB SDK for Laravel",
+			"Description": "by Daniel Haven",
+			"Type": "library",
+			"Language": "PHP (Laravel)",
+			"Link": "https://github.com/ynab-sdk-laravel/ynab-sdk-laravel"
+		},
+		{
+			"Text": "PowerShell - Posh-YNAB by Connor Griffin",
+			"Date added": "2026-01-17T21:38:11.509Z",
+			"Name": "Posh-YNAB",
+			"Description": "by Connor Griffin",
+			"Type": "library",
+			"Language": "PowerShell",
+			"Link": "https://github.com/ConnorGriffin/Posh-YNAB"
+		},
+		{
+			"Text": "R - rnab by Eric Kort",
+			"Date added": "2026-01-17T21:38:11.510Z",
+			"Name": "rnab",
+			"Description": "by Eric Kort",
+			"Type": "library",
+			"Language": "R",
+			"Link": "https://github.com/ejkreboot/rnab"
+		},
+		{
+			"Text": "Rust - ynab-rs by Taryn Phrohdoh",
+			"Date added": "2026-01-17T21:38:11.510Z",
+			"Name": "ynab-rs",
+			"Description": "by Taryn Phrohdoh",
+			"Type": "library",
+			"Language": "Rust",
+			"Link": "https://github.com/Phrohdoh/ynab-rs"
+		},
+		{
+			"Text": "Swift - swiftynab by Andre Bocchini",
+			"Date added": "2026-01-17T21:38:11.511Z",
+			"Name": "swiftynab",
+			"Description": "by Andre Bocchini",
+			"Type": "library",
+			"Language": "Swift",
+			"Link": "https://github.com/andrebocchini/swiftynab"
+		},
+		{
+			"Text": "API Starter Kit - Quickly get started developing an application with the YNAB API",
+			"Date added": "2026-01-17T21:38:11.531Z",
+			"Name": "API Starter Kit",
+			"Description": "Quickly get started developing an application with the YNAB API",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://github.com/ynab/ynab-api-starter-kit"
+		},
+		{
+			"Text": "Zapier for YNAB - Zapier allows you to instantly connect YNAB with 1,500+ apps to automate your work and find productivity super powers.",
+			"Date added": "2026-01-17T21:38:11.532Z",
+			"Name": "Zapier for YNAB",
+			"Description": "Zapier allows you to instantly connect YNAB with 1,500+ apps to automate your work and find productivity super powers.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://zapier.com/apps/ynab/integrations"
+		},
+		{
+			"Text": "Additional Budget Graphs - Some additional graphing and other abilities for YNAB",
+			"Date added": "2026-01-17T21:38:11.533Z",
+			"Name": "Additional Budget Graphs",
+			"Description": "Some additional graphing and other abilities for YNAB",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://additionalbudgetgraphs.web.app/"
+		},
+		{
+			"Text": "AutoSlip - Receipt parsing for YNAB: auto-split and categorize purchases from grocery, Amazon, Target, and anywhere else you shop.",
+			"Date added": "2026-01-17T21:38:11.534Z",
+			"Name": "AutoSlip",
+			"Description": "Receipt parsing for YNAB: auto-split and categorize purchases from grocery, Amazon, Target, and anywhere else you shop.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://autoslip.ai/"
+		},
+		{
+			"Text": "Beeminder - Beeminder is a tool that helps you meet your goals, by putting your money where your mouth is.",
+			"Date added": "2026-01-17T21:38:11.536Z",
+			"Name": "Beeminder",
+			"Description": "Beeminder is a tool that helps you meet your goals, by putting your money where your mouth is.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://www.beeminder.com/"
+		},
+		{
+			"Text": "Beyond Rule 4 - Your Age of Money is ever rising. You're feeling in control of your money. Congratulations! \nWhat would you like to accomplish next?",
+			"Date added": "2026-01-17T21:38:11.537Z",
+			"Name": "Beyond Rule 4",
+			"Description": "Your Age of Money is ever rising. You're feeling in control of your money. Congratulations! \nWhat would you like to accomplish next?",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://beyondrule4.jmmorrissey.com/"
+		},
+		{
+			"Text": "Budget Feeder - Sync your Australian bank transactions to YNAB! \n\n148 Australian Banks and credit cards supported including Amex, ANZ, Westpac, NAB and CBA.\n\nNo need to enter transactions manually, with automatic bank feeds your transactions sync seamlessly to your YNAB budget accounts every day. Let Budget Feeder do the hard work for you.",
+			"Date added": "2026-01-17T21:38:11.538Z",
+			"Name": "Budget Feeder",
+			"Description": "Sync your Australian bank transactions to YNAB! \n\n148 Australian Banks and credit cards supported including Amex, ANZ, Westpac, NAB and CBA.\n\nNo need to enter transactions manually, with automatic bank feeds your transactions sync seamlessly to your YNAB budget accounts every day. Let Budget Feeder do the hard work for you.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://www.budgetfeeder.com/"
+		},
+		{
+			"Text": "Calendar for YNAB - Subscribe to a calendar of your transactions.",
+			"Date added": "2026-01-17T21:38:11.539Z",
+			"Name": "Calendar for YNAB",
+			"Description": "Subscribe to a calendar of your transactions.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://calendarforynab.com/"
+		},
+		{
+			"Text": "Check Out My Budget: Browser Extension - Take your budget with you to places you shop online. Displaying your budget there when you are ready to make a purchase will help you stick to your budget and avoid impulse buys.  Customize the categories that are displayed from your budget on each website so you can see the relevant ones easily for the website that you are visiting.",
+			"Date added": "2026-01-17T21:38:11.539Z",
+			"Name": "Check Out My Budget: Browser Extension",
+			"Description": "Take your budget with you to places you shop online. Displaying your budget there when you are ready to make a purchase will help you stick to your budget and avoid impulse buys.  Customize the categories that are displayed from your budget on each website so you can see the relevant ones easily for the website that you are visiting.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://checkoutmybudget.com/"
+		},
+		{
+			"Text": "Check Out My Budget: Transaction Copier for YNAB - Have you ever wanted to play around with your YNAB categories, re-categorizing some of your transactions just to see how it would work? YNAB’s Fresh Start only copies over the categories and accounts, but doesn’t bring the transactions over so it is hard to do this without risking messing up your existing budget.\n\nThis tool copies the transactions from one budget to a new budget, containing all the transactions into a single \"migration\" account. When you run this tool, the new budget must be a \"Fresh Start\" of the old one with all the same groups and categories but once the tool has run and the transactions are are copied over, you can re-categorize and experiment to your hearts content!",
+			"Date added": "2026-01-17T21:38:11.540Z",
+			"Name": "Check Out My Budget: Transaction Copier for YNAB",
+			"Description": "Have you ever wanted to play around with your YNAB categories, re-categorizing some of your transactions just to see how it would work? YNAB’s Fresh Start only copies over the categories and accounts, but doesn’t bring the transactions over so it is hard to do this without risking messing up your existing budget.\n\nThis tool copies the transactions from one budget to a new budget, containing all the transactions into a single \"migration\" account. When you run this tool, the new budget must be a \"Fresh Start\" of the old one with all the same groups and categories but once the tool has run and the transactions are are copied over, you can re-categorize and experiment to your hearts content!",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://checkoutmybudget.com/tools/copy_transactions/"
+		},
+		{
+			"Text": "Coda Sync for YNAB - A Coda pack to sync your transactions into a doc",
+			"Date added": "2026-01-17T21:38:11.541Z",
+			"Name": "Coda Sync for YNAB",
+			"Description": "A Coda pack to sync your transactions into a doc",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://coda.io/@david-weitzman/coda-for-ynab"
+		},
+		{
+			"Text": "Cost Sharing for YNAB - Conveniently manage a shared credit card or bank account in YNAB",
+			"Date added": "2026-01-17T21:38:11.541Z",
+			"Name": "Cost Sharing for YNAB",
+			"Description": "Conveniently manage a shared credit card or bank account in YNAB",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://costsharingforynab.com/"
+		},
+		{
+			"Text": "Custom Reports for YNAB - Explore your transactions further with custom reports beyond YNAB's built-in reports.",
+			"Date added": "2026-01-17T21:38:11.542Z",
+			"Name": "Custom Reports for YNAB",
+			"Description": "Explore your transactions further with custom reports beyond YNAB's built-in reports.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://www.customreportsforynab.com/"
+		},
+		{
+			"Text": "DAKboard - DAKboard is a customizable display for photos, calendar, news, weather and so much more!",
+			"Date added": "2026-01-17T21:38:11.542Z",
+			"Name": "DAKboard",
+			"Description": "DAKboard is a customizable display for photos, calendar, news, weather and so much more!",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://dakboard.com/"
+		},
+		{
+			"Text": "Dash for YNAB - Dashboard and reporting tools for YNAB.",
+			"Date added": "2026-01-17T21:38:11.543Z",
+			"Name": "Dash for YNAB",
+			"Description": "Dashboard and reporting tools for YNAB.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://dashforynab.com/"
+		},
+		{
+			"Text": "Email Integration for YNAB - Add transactions to YNAB by forwarding your bank emails. Permission to Read is needed to match Accounts, Categories, and Payees.",
+			"Date added": "2026-01-17T21:38:11.544Z",
+			"Name": "Email Integration for YNAB",
+			"Description": "Add transactions to YNAB by forwarding your bank emails. Permission to Read is needed to match Accounts, Categories, and Payees.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://www.email4ynab.com/"
+		},
+		{
+			"Text": "FBAR Max Balance Calculator - An app that allows you to calculate your max account balances for the Report of Foreign Bank and Financial Accounts (FBAR).",
+			"Date added": "2026-01-17T21:38:11.544Z",
+			"Name": "FBAR Max Balance Calculator",
+			"Description": "An app that allows you to calculate your max account balances for the Report of Foreign Bank and Financial Accounts (FBAR).",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://fbar-max-balance-calculator.vercel.app/"
+		},
+		{
+			"Text": "FinInsights for YNAB - AI-powered financial intelligence for YNAB budgets. FinInsights provides\n  read-only budget analysis, spending pattern detection, and intelligent\n  reallocation recommendations to help users optimize their YNAB budgets.",
+			"Date added": "2026-01-17T21:38:11.545Z",
+			"Name": "FinInsights for YNAB",
+			"Description": "AI-powered financial intelligence for YNAB budgets. FinInsights provides\n  read-only budget analysis, spending pattern detection, and intelligent\n  reallocation recommendations to help users optimize their YNAB budgets.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://fininsights.io/"
+		},
+		{
+			"Text": "GPT for YNAB (Unofficial) - AI assistant for You Need A Budget (YNAB), powered by ChatGPT. Not affiliated with or endorsed by YNAB. As with any AI, this assistant can hallucinate or be flat out wrong. DO NOT make financial decisions based on this assistant.",
+			"Date added": "2026-01-17T21:38:11.545Z",
+			"Name": "GPT for YNAB (Unofficial)",
+			"Description": "AI assistant for You Need A Budget (YNAB), powered by ChatGPT. Not affiliated with or endorsed by YNAB. As with any AI, this assistant can hallucinate or be flat out wrong. DO NOT make financial decisions based on this assistant.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://chat.openai.com/g/g-88YNmz2RR-gpt-for-ynab"
+		},
+		{
+			"Text": "Heatmap for YNAB - A report that displays your YNAB transactions in a heatmap style to get a bird's eye view of your budget.",
+			"Date added": "2026-01-17T21:38:11.546Z",
+			"Name": "Heatmap for YNAB",
+			"Description": "A report that displays your YNAB transactions in a heatmap style to get a bird's eye view of your budget.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://heatmapforynab.netlify.app/"
+		},
+		{
+			"Text": "Importer for YNAB - Importer for YNAB is a free, open-source tool that helps you convert Israeli bank and credit card files to the YNAB format. It supports major banks and credit cards including Isracard, Cal, Max, Mizrahi, and Poalim.",
+			"Date added": "2026-01-17T21:38:11.547Z",
+			"Name": "Importer for YNAB",
+			"Description": "Importer for YNAB is a free, open-source tool that helps you convert Israeli bank and credit card files to the YNAB format. It supports major banks and credit cards including Isracard, Cal, Max, Mizrahi, and Poalim.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://www.importer-for-ynab.app/"
+		},
+		{
+			"Text": "LedgerGPT - AI-assisted ledger reconciliation for personal finances. Automatically parses statements, compares them to your ledger, and proposes accurate updates for review.",
+			"Date added": "2026-01-17T21:38:11.547Z",
+			"Name": "LedgerGPT",
+			"Description": "AI-assisted ledger reconciliation for personal finances. Automatically parses statements, compares them to your ledger, and proposes accurate updates for review.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://ledgergpt.io/"
+		},
+		{
+			"Text": "Lumy - Lumy helps you get more out of your YNAB budget with features like Month in Review, Frugal Month, Spend Trackers, and more! Tune into your budget with configurable reports and charts, and join the active community of Lumy users on our Discord!",
+			"Date added": "2026-01-17T21:38:11.548Z",
+			"Name": "Lumy",
+			"Description": "Lumy helps you get more out of your YNAB budget with features like Month in Review, Frugal Month, Spend Trackers, and more! Tune into your budget with configurable reports and charts, and join the active community of Lumy users on our Discord!",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://lumyforynab.app/"
+		},
+		{
+			"Text": "Mobile Toolbox for YNAB - This application connects with a user’s live budget data to generate actionable insights on cash-flow, measure progress toward financial independence, track savings for future liabilities (such as children’s education), and optimise credit-card reward strategies.",
+			"Date added": "2026-01-17T21:38:11.549Z",
+			"Name": "Mobile Toolbox for YNAB",
+			"Description": "This application connects with a user’s live budget data to generate actionable insights on cash-flow, measure progress toward financial independence, track savings for future liabilities (such as children’s education), and optimise credit-card reward strategies.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://budget.friedmag.com/"
+		},
+		{
+			"Text": "Mo's Flows - Visualize your Value - A Budget Visualizer",
+			"Date added": "2026-01-17T21:38:11.549Z",
+			"Name": "Mo's Flows",
+			"Description": "Visualize your Value - A Budget Visualizer",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://mosflows.com/"
+		},
+		{
+			"Text": "Multi-currency for YNAB - Manage YNAB accounts with multiple currencies in a single budget",
+			"Date added": "2026-01-17T21:38:11.550Z",
+			"Name": "Multi-currency for YNAB",
+			"Description": "Manage YNAB accounts with multiple currencies in a single budget",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://ynab.rmillan.com/"
+		},
+		{
+			"Text": "MYMM Sync for YNAB - Import your YNAB data to your Personal Finance Bundle in Google Sheets with a few clicks!",
+			"Date added": "2026-01-17T21:38:11.550Z",
+			"Name": "MYMM Sync for YNAB",
+			"Description": "Import your YNAB data to your Personal Finance Bundle in Google Sheets with a few clicks!",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://www.makingyourmoneymatter.com/mymm-sync-for-ynab/"
+		},
+		{
+			"Text": "On Target Analysis For YNAB - Allows you to compare how closely the money they assigned matches your targets/goals for the month. Quickly highlights categories you assigned much more than you targeted and much less than you targeted. This quick comparison makes it easy to reflect on if you made the right trade offs",
+			"Date added": "2026-01-17T21:38:11.551Z",
+			"Name": "On Target Analysis For YNAB",
+			"Description": "Allows you to compare how closely the money they assigned matches your targets/goals for the month. Quickly highlights categories you assigned much more than you targeted and much less than you targeted. This quick comparison makes it easy to reflect on if you made the right trade offs",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://www.ontargetanalysisforynab.com/"
+		},
+		{
+			"Text": "Peek for YNAB - A browser extension to check on your category and account balances in YNAB, and quickly add transactions.",
+			"Date added": "2026-01-17T21:38:11.551Z",
+			"Name": "Peek for YNAB",
+			"Description": "A browser extension to check on your category and account balances in YNAB, and quickly add transactions.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://peekforynab.com/"
+		},
+		{
+			"Text": "Pipedream - Integration platform for developers",
+			"Date added": "2026-01-17T21:38:11.552Z",
+			"Name": "Pipedream",
+			"Description": "Integration platform for developers",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://pipedream.com/"
+		},
+		{
+			"Text": "ProjectionLab Sync - Syncs YNAB account balances with ProjectionLab. Allows you to grow beyond Rule 4 with detailed projections and tax models.",
+			"Date added": "2026-01-17T21:38:11.552Z",
+			"Name": "ProjectionLab Sync",
+			"Description": "Syncs YNAB account balances with ProjectionLab. Allows you to grow beyond Rule 4 with detailed projections and tax models.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://chrome.google.com/webstore/detail/ynab-%3E-projectionlab-sync/loeekpinmlccgelapofbejkbnfilfggl"
+		},
+		{
+			"Text": "Receipt Reader AI - All-in-one receipt management app",
+			"Date added": "2026-01-17T21:38:11.553Z",
+			"Name": "Receipt Reader AI",
+			"Description": "All-in-one receipt management app",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://receiptreaderai.app/"
+		},
+		{
+			"Text": "Receipts for YNAB - Receipts for YNAB helps you turn paper receipts into transactions in your YNAB plan. On iOS 26 and later, it uses on-device Apple Intelligence to scan receipts, extract the merchant, date, total, and line items, and then lets you review and send the transaction to the YNAB budget you choose. All receipt processing happens on your device, and Receipts for YNAB is an independent third-party app that is not sponsored or endorsed by YNAB.",
+			"Date added": "2026-01-17T21:38:11.553Z",
+			"Name": "Receipts for YNAB",
+			"Description": "Receipts for YNAB helps you turn paper receipts into transactions in your YNAB plan. On iOS 26 and later, it uses on-device Apple Intelligence to scan receipts, extract the merchant, date, total, and line items, and then lets you review and send the transaction to the YNAB budget you choose. All receipt processing happens on your device, and Receipts for YNAB is an independent third-party app that is not sponsored or endorsed by YNAB.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://eturea.github.io/Receipts-for-YNAB-site/"
+		},
+		{
+			"Text": "See Your Budget - Visualize your YNAB budget in various useful ways.",
+			"Date added": "2026-01-17T21:38:11.554Z",
+			"Name": "See Your Budget",
+			"Description": "Visualize your YNAB budget in various useful ways.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://seeyourbudget.app/"
+		},
+		{
+			"Text": "Splitwise for YNAB - Sync shared expenses with your partner between YNAB and Splitwise",
+			"Date added": "2026-01-17T21:38:11.554Z",
+			"Name": "Splitwise for YNAB",
+			"Description": "Sync shared expenses with your partner between YNAB and Splitwise",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://splitwiseforynab.com/"
+		},
+		{
+			"Text": "Stats for YNAB - Discover money insights right in your device.",
+			"Date added": "2026-01-17T21:38:11.555Z",
+			"Name": "Stats for YNAB",
+			"Description": "Discover money insights right in your device.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://apps.apple.com/us/app/stats-for-ynab/id6444380128"
+		},
+		{
+			"Text": "Streaks (For YNAB) - Build healthy spending habits using your YNAB transactions.",
+			"Date added": "2026-01-17T21:38:11.555Z",
+			"Name": "Streaks (For YNAB)",
+			"Description": "Build healthy spending habits using your YNAB transactions.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://danielh-official.github.io/streaksforynab/"
+		},
+		{
+			"Text": "Sync for YNAB - Connect your bank to YNAB",
+			"Date added": "2026-01-17T21:38:11.556Z",
+			"Name": "Sync for YNAB",
+			"Description": "Connect your bank to YNAB",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://syncforynab.com/"
+		},
+		{
+			"Text": "Synci.io - Automatically import bank transactions to YNAB. Synci is connected to 2447 banks across 31 European countries.",
+			"Date added": "2026-01-17T21:38:11.556Z",
+			"Name": "Synci.io",
+			"Description": "Automatically import bank transactions to YNAB. Synci is connected to 2447 banks across 31 European countries.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://synci.io/"
+		},
+		{
+			"Text": "Target Visualizer for YNAB - Visualize your monthly targets to work out how much money you need to earn and where you've allocated your targets.",
+			"Date added": "2026-01-17T21:38:11.557Z",
+			"Name": "Target Visualizer for YNAB",
+			"Description": "Visualize your monthly targets to work out how much money you need to earn and where you've allocated your targets.",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://bany.justindra.com/"
+		},
+		{
+			"Text": "Undebt.it - Undebt.it is a free, mobile-friendly debt snowball calculator",
+			"Date added": "2026-01-17T21:38:11.557Z",
+			"Name": "Undebt.it",
+			"Description": "Undebt.it is a free, mobile-friendly debt snowball calculator",
+			"Type": "works_with_ynab",
+			"Language": null,
+			"Link": "https://undebt.it/syncing-with-ynab.php"
+		}
+	]
+}
