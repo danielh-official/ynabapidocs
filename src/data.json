@@ -406,10 +406,10 @@
       "Link": "https://receiptreaderai.app/"
     },
     {
-      "Text": "Receipts for YNAB - Receipts for YNAB helps you turn paper receipts into transactions in your YNAB plan. On iOS 26 and later, it uses on-device Apple Intelligence to scan receipts, extract the merchant, date, total, and line items, and then lets you review and send the transaction to the YNAB budget you choose. All receipt processing happens on your device, and Receipts for YNAB is an independent third-party app that is not sponsored or endorsed by YNAB.",
+      "Text": "Receipts for YNAB - Scan receipts and auto-split line items into YNAB categories. \nUses on-device Apple Intelligence — your receipts never leave your iPhone. iOS app.",
       "Date added": "2026-01-17T21:38:11.553Z",
       "Name": "Receipts for YNAB",
-      "Description": "Receipts for YNAB helps you turn paper receipts into transactions in your YNAB plan. On iOS 26 and later, it uses on-device Apple Intelligence to scan receipts, extract the merchant, date, total, and line items, and then lets you review and send the transaction to the YNAB budget you choose. All receipt processing happens on your device, and Receipts for YNAB is an independent third-party app that is not sponsored or endorsed by YNAB.",
+      "Description": "Scan receipts and auto-split line items into YNAB categories. \nUses on-device Apple Intelligence — your receipts never leave your iPhone. iOS app.",
       "Type": "works_with_ynab",
       "Language": null,
       "Link": "https://eturea.github.io/Receipts-for-YNAB-site/"
