@@ -4,10 +4,6 @@ import * as fs from 'fs';
 import * as path from 'path';
 import type { DataItem } from '$lib';
 
-interface ExistingData {
-	items: DataItem[];
-}
-
 class YNABScraper {
 	private logFile: string;
 	private dataFilePath: string;
@@ -193,9 +189,9 @@ class YNABScraper {
 		try {
 			if (fs.existsSync(this.dataFilePath)) {
 				const content = fs.readFileSync(this.dataFilePath, 'utf-8');
-				const data = JSON.parse(content) as ExistingData;
-				this.log(`Loaded ${data.items.length} existing items from data.json`);
-				return data.items;
+				const data = JSON.parse(content) as DataItem[];
+				this.log(`Loaded ${data.length} existing items from data.json`);
+				return data;
 			}
 		} catch (error) {
 			this.log(`WARNING: Could not load existing data.json: ${error}`);
@@ -237,8 +233,7 @@ class YNABScraper {
 
 	private saveData(items: DataItem[]): void {
 		try {
-			const data: ExistingData = { items };
-			fs.writeFileSync(this.dataFilePath, JSON.stringify(data, null, 2));
+			fs.writeFileSync(this.dataFilePath, JSON.stringify(items, null, 2));
 			this.log(`Saved ${items.length} items to data.json`);
 		} catch (error) {
 			this.log(`ERROR saving data.json: ${error}`);
