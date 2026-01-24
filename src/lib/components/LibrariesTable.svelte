@@ -7,6 +7,10 @@
 		Type: 'library' | 'works_with_ynab';
 		Language: string | null;
 		Link: string;
+		// Custom fields (manually added, may be more outdated than scraped fields)
+		Author?: string | null;
+		GitHub?: string | null;
+		Platforms?: string[] | null;
 	}
 
 	let { libraries = [] }: { libraries?: DataItem[] } = $props();
@@ -69,6 +73,9 @@
 					<th>Language</th>
 					<th>Name</th>
 					<th>Description</th>
+					<th>Author</th>
+					<th>GitHub</th>
+					<th>Platforms</th>
 					<th>Date Added</th>
 				</tr>
 			</thead>
@@ -84,6 +91,17 @@
 							</a>
 						</td>
 						<td class="description-cell">{lib.Description}</td>
+						<td class="custom-field-cell">{lib.Author || ' - '}</td>
+						<td class="custom-field-cell">
+							{#if lib.GitHub}
+								<a href={lib.GitHub} target="_blank" rel="noopener noreferrer">
+									Link
+								</a>
+							{:else}
+								 - 
+							{/if}
+						</td>
+						<td class="custom-field-cell">{lib.Platforms ? lib.Platforms.join(', ') : ' - '}</td>
 						<td class="date-cell">{new Date(lib['Date added']).toLocaleString()}</td>
 					</tr>
 				{/each}
@@ -224,6 +242,21 @@
 	.date-cell {
 		color: #6b7280;
 		width: 120px;
+	}
+
+	.custom-field-cell {
+		color: #6b7280;
+		font-size: 12px;
+	}
+
+	.custom-field-cell a {
+		color: #2563eb;
+		text-decoration: none;
+	}
+
+	.custom-field-cell a:hover {
+		color: #1d4ed8;
+		text-decoration: underline;
 	}
 
 	.empty-state {

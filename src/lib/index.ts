@@ -7,4 +7,8 @@ export interface DataItem {
 	Type: 'library' | 'works_with_ynab';
 	Language: string | null;
 	Link: string;
+	// Custom fields (manually added, may be more outdated than scraped fields)
+	Author?: string | null;
+	GitHub?: string | null;
+	Platforms?: string[] | null;
 }
