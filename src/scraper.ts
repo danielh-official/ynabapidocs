@@ -5,287 +5,303 @@ import * as path from 'path';
 import type { DataItem } from '$lib';
 
 class YNABScraper {
-	private logFile: string;
-	private dataFilePath: string;
-	private ynabHtmlFilePath: string;
-	private baseUrl = 'https://api.ynab.com/';
+    private logFile: string;
+    private dataFilePath: string;
+    private ynabHtmlFilePath: string;
+    private baseUrl = 'https://api.ynab.com/';
 
-	constructor() {
-		this.logFile = path.join(process.cwd(), 'scraper.log');
-		this.dataFilePath = path.join(process.cwd(), 'src', 'data.json');
-		// Save fetched YNAB HTML as the root original.html (exact copy)
-		this.ynabHtmlFilePath = path.join(process.cwd(), 'original.html');
-		this.clearLog();
-	}
+    constructor() {
+        this.logFile = path.join(process.cwd(), 'scraper.log');
+        this.dataFilePath = path.join(process.cwd(), 'src', 'data.json');
+        // Save fetched YNAB HTML as the root original.html (exact copy)
+        this.ynabHtmlFilePath = path.join(process.cwd(), 'original.html');
+        this.clearLog();
+    }
 
-	private log(message: string): void {
-		const timestamp = new Date().toISOString();
-		const logMessage = `[${timestamp}] ${message}\n`;
-		fs.appendFileSync(this.logFile, logMessage);
-		console.log(logMessage);
-	}
+    private log(message: string): void {
+        const timestamp = new Date().toISOString();
+        const logMessage = `[${timestamp}] ${message}\n`;
+        fs.appendFileSync(this.logFile, logMessage);
+        console.log(logMessage);
+    }
 
-	private clearLog(): void {
-		fs.writeFileSync(this.logFile, '');
-	}
+    private clearLog(): void {
+        fs.writeFileSync(this.logFile, '');
+    }
 
-	async fetchPage(): Promise<string> {
-		try {
-			this.log(`Fetching ${this.baseUrl}`);
-			const response = await fetch(this.baseUrl);
-			if (!response.ok) {
-				throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-			}
-			const html = await response.text();
-			this.log('Page fetched successfully');
-			return html;
-		} catch (error) {
-			this.log(`ERROR fetching page: ${error}`);
-			throw error;
-		}
-	}
+    async fetchPage(): Promise<string> {
+        try {
+            this.log(`Fetching ${this.baseUrl}`);
+            const response = await fetch(this.baseUrl);
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            const html = await response.text();
+            this.log('Page fetched successfully');
+            return html;
+        } catch (error) {
+            this.log(`ERROR fetching page: ${error}`);
+            throw error;
+        }
+    }
 
-	private parseLibraries(html: string): DataItem[] {
-		const items: DataItem[] = [];
-		try {
-			const dom = new JSDOM(html);
-			const document = dom.window.document;
+    private parseLibraries(html: string): DataItem[] {
+        const items: DataItem[] = [];
+        try {
+            const dom = new JSDOM(html);
+            const document = dom.window.document;
 
-			// Find the clients-community section
-			const clientsSection = document.getElementById('clients-community');
-			if (!clientsSection) {
-				this.log('WARNING: Could not find #clients-community section');
-				return items;
-			}
+            // Find the clients-community section
+            const clientsSection = document.getElementById('clients-community');
+            if (!clientsSection) {
+                this.log('WARNING: Could not find #clients-community section');
+                return items;
+            }
 
-			// Find the list items within this section
-			const listItems = clientsSection.parentElement?.querySelectorAll('li') || [];
+            // Find the list items within this section
+            const listItems = clientsSection.parentElement?.querySelectorAll('li') || [];
 
-			listItems.forEach((li: Element, index: number) => {
-				try {
-					const text = li.textContent?.trim() || '';
-					if (!text) return;
+            listItems.forEach((li: Element, index: number) => {
+                try {
+                    const text = li.textContent?.trim() || '';
+                    if (!text) return;
 
-					// Get the anchor tag
-					const anchor = li.querySelector('a');
-					if (!anchor) {
-						this.log(`WARNING: Library item ${index} has no anchor tag: "${text}"`);
-						return;
-					}
+                    // Get the anchor tag
+                    const anchor = li.querySelector('a');
+                    if (!anchor) {
+                        this.log(`WARNING: Library item ${index} has no anchor tag: "${text}"`);
+                        return;
+                    }
 
-					const link = anchor.href;
-					const anchorText = anchor.textContent?.trim() || '';
+                    const link = anchor.href;
+                    const anchorText = anchor.textContent?.trim() || '';
 
-					// Extract language (text before the first " - ")
-					const parts = text.split(' - ');
-					let language = '';
-					let nameAndRest = text;
+                    // Extract language (text before the first " - ")
+                    const parts = text.split(' - ');
+                    let language = '';
+                    let nameAndRest = text;
 
-					// Language is the part before the first " - "
-					if (parts.length >= 2) {
-						language = parts[0].trim();
-						nameAndRest = parts.slice(1).join(' - ');
-					}
+                    // Language is the part before the first " - "
+                    if (parts.length >= 2) {
+                        language = parts[0].trim();
+                        nameAndRest = parts.slice(1).join(' - ');
+                    }
 
-					// Name is the anchor text
-					const name = anchorText;
+                    // Name is the anchor text
+                    const name = anchorText;
 
-					// Description is everything after " - " that comes after the name
-					// We need to find the description after the anchor text
-					const descriptionMatch = text.match(new RegExp(`${name}\\s+by\\s+(.+?)$`));
-					let description = '';
+                    // Description is everything after " - " that comes after the name
+                    // We need to find the description after the anchor text
+                    const descriptionMatch = text.match(new RegExp(`${name}\\s+by\\s+(.+?)$`));
+                    let description = '';
 
-					if (descriptionMatch) {
-						description = `by ${descriptionMatch[1]}`;
-					} else {
-						// Fallback: get everything after the language and dash
-						const descriptionStart = text.indexOf(anchorText) + anchorText.length;
-						description = text.substring(descriptionStart).trim();
-					}
+                    if (descriptionMatch) {
+                        description = `by ${descriptionMatch[1]}`;
+                    } else {
+                        // Fallback: get everything after the language and dash
+                        const descriptionStart = text.indexOf(anchorText) + anchorText.length;
+                        description = text.substring(descriptionStart).trim();
+                    }
 
-					const item: DataItem = {
-						Text: text,
-						'Date added': new Date().toISOString(),
-						Name: name,
-						Description: description,
-						Type: 'library',
-						Language: language,
-						Link: link
-					};
+                    const item: DataItem = {
+                        Text: text,
+                        'Date added': new Date().toISOString(),
+                        Name: name,
+                        Description: description,
+                        Type: 'library',
+                        Language: language,
+                        Link: link
+                    };
 
-					items.push(item);
-					this.log(`Parsed library: ${name} (${language})`);
-				} catch (error) {
-					this.log(`ERROR parsing library item ${index}: ${error}`);
-				}
-			});
-		} catch (error) {
-			this.log(`ERROR parsing libraries section: ${error}`);
-		}
+                    items.push(item);
+                    this.log(`Parsed library: ${name} (${language})`);
+                } catch (error) {
+                    this.log(`ERROR parsing library item ${index}: ${error}`);
+                }
+            });
+        } catch (error) {
+            this.log(`ERROR parsing libraries section: ${error}`);
+        }
 
-		return items;
-	}
+        return items;
+    }
 
-	private parseWorksWithYNAB(html: string): DataItem[] {
-		const items: DataItem[] = [];
-		try {
-			const dom = new JSDOM(html);
-			const document = dom.window.document;
+    private parseWorksWithYNAB(html: string): DataItem[] {
+        const items: DataItem[] = [];
+        try {
+            const dom = new JSDOM(html);
+            const document = dom.window.document;
 
-			// Find the works-with-ynab section
-			const worksSection = document.getElementById('works-with-ynab-third-party');
-			if (!worksSection) {
-				this.log('WARNING: Could not find #works-with-ynab-third-party section');
-				return items;
-			}
+            // Find the works-with-ynab section
+            const worksSection = document.getElementById('works-with-ynab-third-party');
+            if (!worksSection) {
+                this.log('WARNING: Could not find #works-with-ynab-third-party section');
+                return items;
+            }
 
-			// Find the list items within this section
-			const listItems = worksSection.parentElement?.querySelectorAll('li') || [];
+            // Find the list items within this section
+            const listItems = worksSection.parentElement?.querySelectorAll('li') || [];
 
-			listItems.forEach((li: Element, index: number) => {
-				try {
-					const text = li.textContent?.trim() || '';
-					if (!text) return;
+            listItems.forEach((li: Element, index: number) => {
+                try {
+                    const text = li.textContent?.trim() || '';
+                    if (!text) return;
 
-					// Get the anchor tag
-					const anchor = li.querySelector('a');
-					if (!anchor) {
-						this.log(`WARNING: Works with YNAB item ${index} has no anchor tag: "${text}"`);
-						return;
-					}
+                    // Get the anchor tag
+                    const anchor = li.querySelector('a');
+                    if (!anchor) {
+                        this.log(`WARNING: Works with YNAB item ${index} has no anchor tag: "${text}"`);
+                        return;
+                    }
 
-					const link = anchor.href;
-					const anchorText = anchor.textContent?.trim() || '';
+                    const link = anchor.href;
+                    const anchorText = anchor.textContent?.trim() || '';
 
-					// For works_with_ynab items, the structure is: <a>Name</a> - Description
-					const parts = text.split(' - ');
-					const name = anchorText;
-					const description = parts.slice(1).join(' - ').trim();
+                    // For works_with_ynab items, the structure is: <a>Name</a> - Description
+                    const parts = text.split(' - ');
+                    const name = anchorText;
+                    const description = parts.slice(1).join(' - ').trim();
 
-					const item: DataItem = {
-						Text: text,
-						'Date added': new Date().toISOString(),
-						Name: name,
-						Description: description,
-						Type: 'works_with_ynab',
-						Language: null,
-						Link: link
-					};
+                    const item: DataItem = {
+                        Text: text,
+                        'Date added': new Date().toISOString(),
+                        Name: name,
+                        Description: description,
+                        Type: 'works_with_ynab',
+                        Language: null,
+                        Link: link
+                    };
 
-					items.push(item);
-					this.log(`Parsed works_with_ynab: ${name}`);
-				} catch (error) {
-					this.log(`ERROR parsing works_with_ynab item ${index}: ${error}`);
-				}
-			});
-		} catch (error) {
-			this.log(`ERROR parsing works_with_ynab section: ${error}`);
-		}
+                    items.push(item);
+                    this.log(`Parsed works_with_ynab: ${name}`);
+                } catch (error) {
+                    this.log(`ERROR parsing works_with_ynab item ${index}: ${error}`);
+                }
+            });
+        } catch (error) {
+            this.log(`ERROR parsing works_with_ynab section: ${error}`);
+        }
 
-		return items;
-	}
+        return items;
+    }
 
-	private loadExistingData(): DataItem[] {
-		try {
-			if (fs.existsSync(this.dataFilePath)) {
-				const content = fs.readFileSync(this.dataFilePath, 'utf-8');
-				const data = JSON.parse(content) as DataItem[];
-				this.log(`Loaded ${data.length} existing items from data.json`);
-				return data;
-			}
-		} catch (error) {
-			this.log(`WARNING: Could not load existing data.json: ${error}`);
-		}
-		return [];
-	}
+    private loadExistingData(): DataItem[] {
+        try {
+            if (fs.existsSync(this.dataFilePath)) {
+                const content = fs.readFileSync(this.dataFilePath, 'utf-8');
+                const data = JSON.parse(content) as DataItem[];
+                this.log(`Loaded ${data.length} existing items from data.json`);
+                return data;
+            }
+        } catch (error) {
+            this.log(`WARNING: Could not load existing data.json: ${error}`);
+        }
+        return [];
+    }
 
-	private mergeItems(existingItems: DataItem[], newItems: DataItem[]): DataItem[] {
-		const merged = [...existingItems];
+    private mergeItems(existingItems: DataItem[], newItems: DataItem[]): DataItem[] {
+        const merged: DataItem[] = [...existingItems];
 
-		// Create a map of existing items by Name + Link
-		const existingMap = new Map<string, number>();
-		existingItems.forEach((item, index) => {
-			const key = `${item.Name}||${item.Link}`;
-			existingMap.set(key, index);
-		});
+        // Mark items as deleted if not found in new items
+        const currentDate = new Date().toISOString();
+        newItems.forEach((newItem) => {
+            const key = `${newItem.Name}||${newItem.Link}`;
+            const existingIndex = existingMap.get(key);
+            if (existingIndex === undefined) {
+                // Item not found, mark as deleted
+                merged.push({
+                    ...newItem,
+                    // If "Date not found" already exists, preserve it
+                    'Date not found': newItem['Date not found'] || currentDate
+                });
+                this.log(`Marked item as not found: ${newItem.Name}`);
+            }
+        });
 
-		// Process new items
-		newItems.forEach((newItem) => {
-			const key = `${newItem.Name}||${newItem.Link}`;
-			const existingIndex = existingMap.get(key);
+        // Create a map of existing items by Name + Link
+        const existingMap = new Map<string, number>();
+        existingItems.forEach((item, index) => {
+            const key = `${item.Name}||${item.Link}`;
+            existingMap.set(key, index);
+        });
 
-			if (existingIndex !== undefined) {
-				// Update existing item but preserve original "Date added"
-				merged[existingIndex] = {
-					...newItem,
-					'Date added': merged[existingIndex]['Date added']
-				};
-				this.log(`Updated existing item: ${newItem.Name}`);
-			} else {
-				// Add new item
-				merged.push(newItem);
-				this.log(`Added new item: ${newItem.Name}`);
-			}
-		});
+        // Process new items
+        newItems.forEach((newItem) => {
+            const key = `${newItem.Name}||${newItem.Link}`;
+            const existingIndex = existingMap.get(key);
 
-		return merged;
-	}
+            if (existingIndex !== undefined) {
+                // Update existing item but preserve original "Date added"
+                merged[existingIndex] = {
+                    ...newItem,
+                    'Date added': merged[existingIndex]['Date added']
+                };
+                this.log(`Updated existing item: ${newItem.Name}`);
+            } else {
+                // Add new item
+                merged.push(newItem);
+                this.log(`Added new item: ${newItem.Name}`);
+            }
+        });
 
-	private saveData(items: DataItem[]): void {
-		try {
-			fs.writeFileSync(this.dataFilePath, JSON.stringify(items, null, 2));
-			this.log(`Saved ${items.length} items to data.json`);
-		} catch (error) {
-			this.log(`ERROR saving data.json: ${error}`);
-			throw error;
-		}
-	}
+        return merged;
+    }
 
-	private saveYNABHTML(html: string): void {
-		try {
-			fs.writeFileSync(this.ynabHtmlFilePath, html);
-			this.log(`Saved YNAB API HTML to original.html`);
-		} catch (error) {
-			this.log(`ERROR saving original.html: ${error}`);
-			throw error;
-		}
-	}
+    private saveData(items: DataItem[]): void {
+        try {
+            fs.writeFileSync(this.dataFilePath, JSON.stringify(items, null, 2));
+            this.log(`Saved ${items.length} items to data.json`);
+        } catch (error) {
+            this.log(`ERROR saving data.json: ${error}`);
+            throw error;
+        }
+    }
 
-	async run(): Promise<void> {
-		try {
-			this.log('=== YNAB API Scraper Started ===');
+    private saveYNABHTML(html: string): void {
+        try {
+            fs.writeFileSync(this.ynabHtmlFilePath, html);
+            this.log(`Saved YNAB API HTML to original.html`);
+        } catch (error) {
+            this.log(`ERROR saving original.html: ${error}`);
+            throw error;
+        }
+    }
 
-			// Fetch the page
-			const html = await this.fetchPage();
+    async run(): Promise<void> {
+        try {
+            this.log('=== YNAB API Scraper Started ===');
 
-			// Save the original YNAB HTML
-			this.saveYNABHTML(html);
+            // Fetch the page
+            const html = await this.fetchPage();
 
-			// Parse libraries and works_with_ynab
-			const libraries = this.parseLibraries(html);
-			const worksWithYNAB = this.parseWorksWithYNAB(html);
+            // Save the original YNAB HTML
+            this.saveYNABHTML(html);
 
-			this.log(`Parsed ${libraries.length} libraries`);
-			this.log(`Parsed ${worksWithYNAB.length} works_with_ynab items`);
+            // Parse libraries and works_with_ynab
+            const libraries = this.parseLibraries(html);
+            const worksWithYNAB = this.parseWorksWithYNAB(html);
 
-			// Combine all new items
-			const newItems = [...libraries, ...worksWithYNAB];
+            this.log(`Parsed ${libraries.length} libraries`);
+            this.log(`Parsed ${worksWithYNAB.length} works_with_ynab items`);
 
-			// Load existing data
-			const existingItems = this.loadExistingData();
+            // Combine all new items
+            const newItems = [...libraries, ...worksWithYNAB];
 
-			// Merge items
-			const mergedItems = this.mergeItems(existingItems, newItems);
+            // Load existing data
+            const existingItems = this.loadExistingData();
 
-			// Save data
-			this.saveData(mergedItems);
+            // Merge items
+            const mergedItems = this.mergeItems(existingItems, newItems);
 
-			this.log('=== YNAB API Scraper Completed Successfully ===');
-		} catch (error) {
-			this.log(`=== YNAB API Scraper Failed: ${error} ===`);
-			process.exit(1);
-		}
-	}
+            // Save data
+            this.saveData(mergedItems);
+
+            this.log('=== YNAB API Scraper Completed Successfully ===');
+        } catch (error) {
+            this.log(`=== YNAB API Scraper Failed: ${error} ===`);
+            process.exit(1);
+        }
+    }
 }
 
 // Run the scraper
