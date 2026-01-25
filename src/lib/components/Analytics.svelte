@@ -1,32 +1,11 @@
 <script lang="ts">
-	interface DataItem {
-		Text: string;
-		'Date added': string;
-		Name: string;
-		Description: string;
-		Type: 'library' | 'works_with_ynab';
-		Language: string | null;
-		Link: string;
-	}
+	import type { DataItem } from '$lib';
 
 	let {
 		items = [],
 		libraries = [],
 		worksWithYNAB = []
 	}: { items?: DataItem[]; libraries?: DataItem[]; worksWithYNAB?: DataItem[] } = $props();
-
-	let languageCounts = $derived(
-		libraries.reduce(
-			(acc, lib) => {
-				const lang = lib.Language || 'Unknown';
-				acc[lang] = (acc[lang] || 0) + 1;
-				return acc;
-			},
-			{} as Record<string, number>
-		)
-	);
-
-	let sortedLanguages = $derived(Object.entries(languageCounts).sort((a, b) => b[1] - a[1]));
 
 	let oldestItem = $derived(
 		items.length > 0
@@ -58,6 +37,20 @@
 
 	let sortedMonths = $derived(Object.entries(monthlyAdditions).sort());
 	let maxMonthCount = $derived(Math.max(...Object.values(monthlyAdditions), 1));
+
+	let platformCounts = $derived(
+		worksWithYNAB.reduce(
+			(acc, lib) => {
+				if (lib.Platforms) {
+					lib.Platforms.forEach((platform: string) => {
+						acc[platform] = (acc[platform] || 0) + 1;
+					});
+				}
+				return acc;
+			},
+			{} as Record<string, number>
+		)
+	);
 </script>
 
 <div class="analytics-container">
@@ -74,22 +67,18 @@
 			<div class="stat-label">Works with YNAB</div>
 			<div class="stat-value">{worksWithYNAB.length}</div>
 		</div>
-		<div class="stat-card">
-			<div class="stat-label">Programming Languages</div>
-			<div class="stat-value">{sortedLanguages.length}</div>
-		</div>
 	</div>
 
 	<div class="section">
-		<h2>Libraries by Language</h2>
+		<h2>Apps By Platform</h2>
 		<div class="chart">
-			{#each sortedLanguages as [language, count]}
+			{#each Object.entries(platformCounts).sort((a, b) => b[1] - a[1]) as [platform, count]}
 				<div class="chart-row">
-					<div class="language-label">{language}</div>
+					<div class="language-label">{platform}</div>
 					<div class="bar-container">
 						<div
 							class="bar"
-							style="width: {(count / Math.max(...Object.values(languageCounts))) * 100}%"
+							style="width: {(count / Math.max(...Object.values(platformCounts))) * 100}%"
 						>
 							<span class="count">{count}</span>
 						</div>
