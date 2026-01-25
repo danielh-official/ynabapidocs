@@ -85,7 +85,8 @@
         "Language": "PHP",
         "Link": "https://github.com/Jorijn/ynab-sdk-php",
         "Author": "Jorijn Schrijvershof",
-        "GitHub": "https://github.com/Jorijn/ynab-sdk-php"
+        "GitHub": "https://github.com/Jorijn/ynab-sdk-php",
+        "GitHub repository is archived": true
     },
     {
         "Text": "PHP (Laravel) - YNAB SDK for Laravel by Daniel Haven",
