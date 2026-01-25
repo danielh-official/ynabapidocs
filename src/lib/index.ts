@@ -11,5 +11,5 @@ export interface DataItem {
 	Author?: string | null;
 	GitHub?: string | null;
 	Platforms?: string[] | null;
-    "GitHub repository is archived"?: boolean | null;
+	'GitHub repository is archived'?: boolean | null;
 }
