@@ -12,4 +12,5 @@ export interface DataItem {
 	GitHub?: string | null;
 	Platforms?: string[] | null;
 	'GitHub repository is archived'?: boolean | null;
+    'Date not found'?: string | null;
 }
