@@ -6,6 +6,7 @@
 	import '$lib/app.css';
 	import data from '../data.json';
 	import type { DataItem } from '$lib';
+	import { SvelteURLSearchParams } from 'svelte/reactivity';
 
 	let items: DataItem[] = $state([]);
 	let loading = $state(true);
@@ -14,16 +15,29 @@
 
 	onMount(() => {
 		try {
-			items = (data.items || []) as DataItem[];
+			items = (data || []) as DataItem[];
 		} catch (err) {
 			error = err instanceof Error ? err.message : 'Unknown error occurred';
 		} finally {
 			loading = false;
 		}
+
+		const params = new SvelteURLSearchParams(window.location.search);
+		const tabParam = params.get('tab');
+		if (tabParam === 'libraries' || tabParam === 'works_with_ynab' || tabParam === 'analytics') {
+			activeTab = tabParam;
+		}
 	});
 
 	let libraries = $derived(items.filter((item) => item.Type === 'library'));
 	let worksWithYNAB = $derived(items.filter((item) => item.Type === 'works_with_ynab'));
+
+	$effect(() => {
+		// Set query param for active tab
+		const params = new SvelteURLSearchParams();
+		params.set('tab', activeTab);
+		history.replaceState(null, '', `${location.pathname}?${params.toString()}`);
+	});
 </script>
 
 <div class="app">
@@ -39,6 +53,28 @@
 				Budget, as well as related names, tradenames, marks, trademarks, emblems, and images are registered
 				trademarks of YNAB.
 			</p>
+			<p style="margin-top: 16px;">
+				If you want to add a new library/integration or update an existing one, please <a
+					href="https://github.com/danielh-official/ynabapidocs/pulls"
+					target="_blank"
+					rel="noopener noreferrer">submit a pull request</a
+				>.
+			</p>
+			<div style="margin-top: 16px;">
+				Like this? Give us a star.
+				<div style="margin-top: 8px;">
+					<a
+						class="github-button"
+						href="https://github.com/danielh-official/ynabapidocs"
+						data-color-scheme="no-preference: light; light: light; dark: dark;"
+						data-icon="octicon-star"
+						data-size="large"
+						data-show-count="true"
+						aria-label="Star test/test on GitHub"
+						target="_blank">Star</a
+					>
+				</div>
+			</div>
 		</div>
 	</header>
 
